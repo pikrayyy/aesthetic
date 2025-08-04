@@ -1,72 +1,110 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Playlist di Background</title>
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-  }
-  body {
-    background: url('https://files.catbox.moe/rm9usx.jpg') center center/cover no-repeat;
-    position: relative;
-    font-family: sans-serif;
-  }
-  .lagu {
-    position: absolute;
-    color: white;
-    background: rgba(0,0,0,0.5);
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman Musik & Video</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    video.bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .centered-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .centered-content img {
+      max-width: 80vw;
+      max-height: 60vh;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    }
+
+    audio {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+
+    /* Teks berjalan */
+    .marquee {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 8px 0;
+      font-size: 1.1em;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 15s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Lagu 1 -->
-<div class="lagu" style="top: 10%; left: 10%;" onclick="playLagu('https://files.catbox.moe/02k6ap.mp4')">
-  Kau Pemeran Utama Di Se... - mulai
-</div>
+  <!-- Teks Berjalan -->
+  <div class="marquee">
+    <span>PERANGKAT ANDA TELAH DIAWASI • JANGAN PERCAYA SIAPAPUN • LAGU DIMULAI • HATI-HATI...</span>
+  </div>
 
-<!-- Lagu 2 -->
-<div class="lagu" style="top: 20%; left: 60%;" onclick="playLagu('https://files.catbox.moe/ribqh6.mp4')">
-  Langit Tak Seharusnya Biru - mulai
-</div>
+  <!-- Video Latar -->
+  <video class="bg" autoplay muted loop playsinline>
+    <source src="https://files.catbox.moe/bvh23v.mp4" type="video/mp4">
+    Browser Anda tidak mendukung video.
+  </video>
 
-<!-- Lagu 3 -->
-<div class="lagu" style="top: 35%; left: 40%;" onclick="playLagu('https://files.catbox.moe/2b7xsj.mp4')">
-  Aku, Kamu Dan Samudra - mulai
-</div>
+  <!-- Musik -->
+  <audio autoplay loop controls>
+    <source src="https://files.catbox.moe/gpgfky.mp4" type="audio/mp4">
+    Browser Anda tidak mendukung audio.
+  </audio>
 
-<!-- Lagu 4 -->
-<div class="lagu" style="top: 55%; left: 10%;" onclick="playLagu('https://files.catbox.moe/ezhaz4.mp4')">
-  Ku Bukan Mesin Lotremu - mulai
-</div>
-
-<!-- Lagu 5 -->
-<div class="lagu" style="top: 65%; left: 50%;" onclick="playLagu('https://files.catbox.moe/np6aq3.mp4')">
-  Mereguk Anti Depresan - mulai
-</div>
-
-<!-- Lagu 6 -->
-<div class="lagu" style="top: 80%; left: 10%;" onclick="playLagu('https://files.catbox.moe/gpgfky.mp4')">
-  Planetarium - mulai
-</div>
-
-<audio id="player" controls style="position:absolute; bottom:10px; left:10px; width:300px;"></audio>
-
-<script>
-function playLagu(link) {
-  var audio = document.getElementById('player');
-  audio.src = link;
-  audio.play();
-}
-</script>
+  <!-- Gambar di Tengah -->
+  <div class="centered-content">
+    <img src="https://files.catbox.moe/y5jja5.jpeg" alt="Gambar Tengah">
+  </div>
 
 </body>
 </html>
