@@ -1,75 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shinchan Music</title>
+  <title>Shinchan Music Cards</title>
   <style>
     body {
       margin: 0;
-      padding: 40px 0;
-      background: url('https://files.catbox.moe/rm9usx.jpg') center/cover no-repeat fixed;
+      padding: 40px 20px;
+      background-color: #000;
       font-family: sans-serif;
+      color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: white;
-      background-color: #000;
+      gap: 30px;
     }
-    .lagu {
-      background: rgba(0, 0, 0, 0.6);
-      margin: 10px;
-      padding: 10px 20px;
-      border-radius: 12px;
-      text-align: center;
-      width: 300px;
-      backdrop-filter: blur(4px);
+
+    .card {
+      width: 90%;
+      max-width: 320px;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #000;
+      position: relative;
+      overflow: hidden;
     }
-    button {
-      margin-top: 8px;
-      padding: 8px 16px;
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
       font-size: 16px;
-      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      font-size: 14px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       background-color: #00cc99;
       color: white;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <div class="lagu">
-    <div>Kau Pemeran Utama Di Se...</div>
-    <button onclick="playAudio('lagu1')">Mulai</button>
+  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
+    <div class="overlay">
+      <div class="title">Kau Pemeran Utama</div>
+      <button class="btn" onclick="playAudio('lagu1')">Mulai</button>
+    </div>
     <audio id="lagu1" src="https://files.catbox.moe/02k6ap.mp4"></audio>
   </div>
 
-  <div class="lagu">
-    <div>Langit Tak Seharusnya Biru</div>
-    <button onclick="playAudio('lagu2')">Mulai</button>
+  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
+    <div class="overlay">
+      <div class="title">Langit Tak Seharusnya Biru</div>
+      <button class="btn" onclick="playAudio('lagu2')">Mulai</button>
+    </div>
     <audio id="lagu2" src="https://files.catbox.moe/ribqh6.mp4"></audio>
   </div>
 
-  <div class="lagu">
-    <div>Aku, Kamu Dan Samudra</div>
-    <button onclick="playAudio('lagu3')">Mulai</button>
+  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
+    <div class="overlay">
+      <div class="title">Aku, Kamu dan Samudra</div>
+      <button class="btn" onclick="playAudio('lagu3')">Mulai</button>
+    </div>
     <audio id="lagu3" src="https://files.catbox.moe/2b7xsj.mp4"></audio>
   </div>
 
-  <div class="lagu">
-    <div>Ku Bukan Mesin Lotremu</div>
-    <button onclick="playAudio('lagu4')">Mulai</button>
+  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
+    <div class="overlay">
+      <div class="title">Ku Bukan Mesin Lotremu</div>
+      <button class="btn" onclick="playAudio('lagu4')">Mulai</button>
+    </div>
     <audio id="lagu4" src="https://files.catbox.moe/ezhaz4.mp4"></audio>
   </div>
 
-  <div class="lagu">
-    <div>Mereguk Anti Depresan La...</div>
-    <button onclick="playAudio('lagu5')">Mulai</button>
+  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
+    <div class="overlay">
+      <div class="title">Anti Depresan Lautan</div>
+      <button class="btn" onclick="playAudio('lagu5')">Mulai</button>
+    </div>
     <audio id="lagu5" src="https://files.catbox.moe/np6aq3.mp4"></audio>
   </div>
 
-  <div class="lagu">
-    <div>Planetarium</div>
-    <button onclick="playAudio('lagu6')">Mulai</button>
+  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
+    <div class="overlay">
+      <div class="title">Planetarium</div>
+      <button class="btn" onclick="playAudio('lagu6')">Mulai</button>
+    </div>
     <audio id="lagu6" src="https://files.catbox.moe/gpgfky.mp4"></audio>
   </div>
 
