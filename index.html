@@ -27,31 +27,6 @@
       z-index: -1;
     }
 
-    .centered-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      text-shadow: 2px 2px 5px #000;
-    }
-
-    .centered-content img {
-      max-width: 80vw;
-      max-height: 60vh;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
-    }
-
-    audio {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 10;
-    }
-
-    /* Teks berjalan */
     .marquee {
       position: fixed;
       top: 0;
@@ -80,13 +55,36 @@
         transform: translateX(-100%);
       }
     }
+
+    .centered-content {
+      position: absolute;
+      top: 30%; /* geser ke atas */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .centered-content img {
+      max-width: 60vw; /* diperkecil */
+      max-height: 45vh;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      margin-bottom: 20px;
+    }
+
+    audio {
+      width: 250px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
 
   <!-- Teks Berjalan -->
   <div class="marquee">
-    <span>PERANGKAT ANDA TELAH DIAWASI • JANGAN PERCAYA SIAPAPUN • LAGU DIMULAI • HATI-HATI...</span>
+    <span>SELAMAT DATANG DI WEB PIKRAY • SELAMAT MENDENGARKAN...</span>
   </div>
 
   <!-- Video Latar -->
@@ -95,15 +93,14 @@
     Browser Anda tidak mendukung video.
   </video>
 
-  <!-- Musik -->
-  <audio autoplay loop controls>
-    <source src="https://files.catbox.moe/gpgfky.mp4" type="audio/mp4">
-    Browser Anda tidak mendukung audio.
-  </audio>
-
-  <!-- Gambar di Tengah -->
+  <!-- Gambar & Musik -->
   <div class="centered-content">
     <img src="https://files.catbox.moe/y5jja5.jpeg" alt="Gambar Tengah">
+    <br>
+    <audio autoplay loop controls>
+      <source src="https://files.catbox.moe/gpgfky.mp4" type="audio/mp4">
+      Browser Anda tidak mendukung audio.
+    </audio>
   </div>
 
 </body>
