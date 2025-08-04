@@ -1,64 +1,88 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DALAM KAWASAN PIKRAY25</title>
+  <title>Shinchan Music</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #ffe4ec, #ffe0f7);
-      font-family: 'Poppins', sans-serif;
-      color: #333;
-      overflow: hidden;
+      padding: 40px 0;
+      background: url('https://files.catbox.moe/rm9usx.jpg') center/cover no-repeat fixed;
+      font-family: sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
+      color: white;
+      background-color: #000;
     }
-
-    .scroll-container {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      padding: 10px;
+    .lagu {
+      background: rgba(0, 0, 0, 0.6);
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      text-align: center;
+      width: 300px;
+      backdrop-filter: blur(4px);
     }
-
-    .scroll-text {
-      display: inline-block;
-      animation: scroll-left 15s linear infinite;
-      font-size: 24px;
-      color: #ff4081;
-      font-weight: bold;
-    }
-
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    audio {
-      display: none;
+    button {
+      margin-top: 8px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #00cc99;
+      color: white;
     }
   </style>
 </head>
 <body>
 
-  <div class="scroll-container">
-    <div class="scroll-text">
-      🌸 Selamat datang di kawasan Pikray25 – Dunia aesthetic dan misterius ✨🎶
-    </div>
+  <div class="lagu">
+    <div>Kau Pemeran Utama Di Se...</div>
+    <button onclick="playAudio('lagu1')">Mulai</button>
+    <audio id="lagu1" src="https://files.catbox.moe/02k6ap.mp4"></audio>
   </div>
 
-  <audio autoplay loop>
-    <source src="https://files.catbox.moe/v4sbkv.mp4" type="audio/mp4">
-  </audio>
+  <div class="lagu">
+    <div>Langit Tak Seharusnya Biru</div>
+    <button onclick="playAudio('lagu2')">Mulai</button>
+    <audio id="lagu2" src="https://files.catbox.moe/ribqh6.mp4"></audio>
+  </div>
 
+  <div class="lagu">
+    <div>Aku, Kamu Dan Samudra</div>
+    <button onclick="playAudio('lagu3')">Mulai</button>
+    <audio id="lagu3" src="https://files.catbox.moe/2b7xsj.mp4"></audio>
+  </div>
+
+  <div class="lagu">
+    <div>Ku Bukan Mesin Lotremu</div>
+    <button onclick="playAudio('lagu4')">Mulai</button>
+    <audio id="lagu4" src="https://files.catbox.moe/ezhaz4.mp4"></audio>
+  </div>
+
+  <div class="lagu">
+    <div>Mereguk Anti Depresan La...</div>
+    <button onclick="playAudio('lagu5')">Mulai</button>
+    <audio id="lagu5" src="https://files.catbox.moe/np6aq3.mp4"></audio>
+  </div>
+
+  <div class="lagu">
+    <div>Planetarium</div>
+    <button onclick="playAudio('lagu6')">Mulai</button>
+    <audio id="lagu6" src="https://files.catbox.moe/gpgfky.mp4"></audio>
+  </div>
+
+  <script>
+    let currentAudio = null;
+    function playAudio(id) {
+      if (currentAudio && currentAudio !== document.getElementById(id)) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+      currentAudio = document.getElementById(id);
+      currentAudio.play();
+    }
+  </script>
 </body>
 </html>
