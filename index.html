@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Halaman Musik & Video</title>
+
+  <!-- Font Rubik Bubbles -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -32,19 +36,24 @@
       top: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0.6);
-      color: #fff;
       padding: 8px 0;
-      font-size: 1.1em;
-      font-weight: bold;
+      font-size: 1.3em;
       white-space: nowrap;
       overflow: hidden;
       z-index: 100;
+      font-family: 'Rubik Bubbles', cursive;
+      letter-spacing: 2px;
     }
 
     .marquee span {
       display: inline-block;
       padding-left: 100%;
       animation: scroll-left 15s linear infinite;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+      background-size: 1000%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: scroll-left 15s linear infinite, rainbow 5s linear infinite;
     }
 
     @keyframes scroll-left {
@@ -56,9 +65,14 @@
       }
     }
 
+    @keyframes rainbow {
+      0% { background-position: 0% }
+      100% { background-position: 100% }
+    }
+
     .centered-content {
       position: absolute;
-      top: 35%; /* sedikit lebih tinggi dari sebelumnya */
+      top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -67,7 +81,7 @@
     }
 
     .centered-content img {
-      max-width: 50vw; /* diperkecil lebih kecil */
+      max-width: 50vw;
       max-height: 40vh;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.7);
@@ -75,7 +89,7 @@
     }
 
     audio {
-      width: 200px; /* diperkecil lebih kecil */
+      width: 200px;
       margin-top: 10px;
     }
   </style>
@@ -84,7 +98,7 @@
 
   <!-- Teks Berjalan -->
   <div class="marquee">
-    <span>SELAMAT DATANG DI WEB @FKRIMHLN & DAN SELAMAT MENDENGARKAN.</span>
+    <span>SELAMAT DATANG DI WEB FKRIMHLN & SELAMAT MENDENGARKAN.</span>
   </div>
 
   <!-- Video Latar -->
