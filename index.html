@@ -1,113 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shinchan Music Cards</title>
+  <title>Playlist Shinchan</title>
   <style>
-    body {
+    body, html {
       margin: 0;
-      padding: 40px 20px;
-      background-color: #000;
-      font-family: sans-serif;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
+      padding: 0;
+      height: 100%;
     }
-
-    .card {
-      width: 90%;
-      max-width: 320px;
-      height: 200px;
+    .background {
+      background: url('https://files.catbox.moe/rm9usx.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #000;
+      width: 100%;
+      height: 100%;
       position: relative;
-      overflow: hidden;
+      font-family: sans-serif;
     }
-
-    .overlay {
+    .song-box {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 20px;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
       display: flex;
-      justify-content: space-between;
       align-items: center;
-    }
-
-    .title {
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .btn {
-      padding: 8px 16px;
-      font-size: 14px;
-      border: none;
-      border-radius: 8px;
-      background-color: #00cc99;
+      justify-content: space-between;
+      background-color: rgba(0,0,0,0.7);
       color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      width: 280px;
+    }
+    .song-box button {
+      background-color: #00cc99;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      font-size: 14px;
+      border-radius: 5px;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
-    <div class="overlay">
-      <div class="title">Kau Pemeran Utama</div>
-      <button class="btn" onclick="playAudio('lagu1')">Mulai</button>
+  <div class="background">
+    <div class="song-box" style="top: 10%; left: 5%;">
+      <div>Kau Pemeran Utama</div>
+      <button onclick="play('lagu1')">Mulai</button>
     </div>
     <audio id="lagu1" src="https://files.catbox.moe/02k6ap.mp4"></audio>
-  </div>
 
-  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
-    <div class="overlay">
-      <div class="title">Langit Tak Seharusnya Biru</div>
-      <button class="btn" onclick="playAudio('lagu2')">Mulai</button>
+    <div class="song-box" style="top: 25%; left: 10%;">
+      <div>Langit Tak Seharusnya Biru</div>
+      <button onclick="play('lagu2')">Mulai</button>
     </div>
     <audio id="lagu2" src="https://files.catbox.moe/ribqh6.mp4"></audio>
-  </div>
 
-  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
-    <div class="overlay">
-      <div class="title">Aku, Kamu dan Samudra</div>
-      <button class="btn" onclick="playAudio('lagu3')">Mulai</button>
+    <div class="song-box" style="top: 40%; left: 8%;">
+      <div>Aku, Kamu Dan Samudra</div>
+      <button onclick="play('lagu3')">Mulai</button>
     </div>
     <audio id="lagu3" src="https://files.catbox.moe/2b7xsj.mp4"></audio>
-  </div>
 
-  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
-    <div class="overlay">
-      <div class="title">Ku Bukan Mesin Lotremu</div>
-      <button class="btn" onclick="playAudio('lagu4')">Mulai</button>
+    <div class="song-box" style="top: 55%; left: 12%;">
+      <div>Ku Bukan Mesin Lotremu</div>
+      <button onclick="play('lagu4')">Mulai</button>
     </div>
     <audio id="lagu4" src="https://files.catbox.moe/ezhaz4.mp4"></audio>
-  </div>
 
-  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
-    <div class="overlay">
-      <div class="title">Anti Depresan Lautan</div>
-      <button class="btn" onclick="playAudio('lagu5')">Mulai</button>
+    <div class="song-box" style="top: 70%; left: 6%;">
+      <div>Anti Depresan Lautan</div>
+      <button onclick="play('lagu5')">Mulai</button>
     </div>
     <audio id="lagu5" src="https://files.catbox.moe/np6aq3.mp4"></audio>
-  </div>
 
-  <div class="card" style="background-image: url('https://files.catbox.moe/rm9usx.jpg');">
-    <div class="overlay">
-      <div class="title">Planetarium</div>
-      <button class="btn" onclick="playAudio('lagu6')">Mulai</button>
+    <div class="song-box" style="top: 85%; left: 5%;">
+      <div>Planetarium</div>
+      <button onclick="play('lagu6')">Mulai</button>
     </div>
     <audio id="lagu6" src="https://files.catbox.moe/gpgfky.mp4"></audio>
   </div>
 
   <script>
     let currentAudio = null;
-    function playAudio(id) {
+    function play(id) {
       if (currentAudio && currentAudio !== document.getElementById(id)) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
