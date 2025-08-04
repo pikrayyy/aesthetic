@@ -12,36 +12,29 @@
       font-family: 'Poppins', sans-serif;
       color: #333;
       overflow: hidden;
-      text-align: center;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      transform: rotate(90deg);
-      transform-origin: top left;
+      height: 100vh;
     }
 
-    #container {
-      width: 100vh;
-      height: 100vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .scroll-container {
+      width: 100%;
       overflow: hidden;
       white-space: nowrap;
-      position: relative;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    .scroll-text {
+      display: inline-block;
+      animation: scroll-left 15s linear infinite;
       font-size: 24px;
-      color: #333;
-    }
-
-    #scrollingText {
-      animation: scroll 10s linear infinite;
-      font-size: 32px;
-      font-weight: bold;
       color: #ff4081;
+      font-weight: bold;
     }
 
-    @keyframes scroll {
+    @keyframes scroll-left {
       0% {
         transform: translateX(100%);
       }
@@ -57,8 +50,10 @@
 </head>
 <body>
 
-  <div id="container">
-    <div id="scrollingText">Selamat datang di dunia aesthetic Pikray25 🎀✨ Nikmati musik dan visual yang menenangkan! 💖</div>
+  <div class="scroll-container">
+    <div class="scroll-text">
+      🌸 Selamat datang di kawasan Pikray25 – Dunia aesthetic dan misterius ✨🎶
+    </div>
   </div>
 
   <audio autoplay loop>
