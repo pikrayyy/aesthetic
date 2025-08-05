@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Halaman Musik & Video</title>
+  <title>Planetarium</title>
 
-  <!-- Font Rubik Bubbles -->
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+  <!-- Font Rubik Bubbles dan Freckle Face -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Freckle+Face&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -18,7 +18,7 @@
     html, body {
       height: 100%;
       overflow: hidden;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Rubik Bubbles', cursive;
     }
 
     video.bg {
@@ -41,38 +41,33 @@
       white-space: nowrap;
       overflow: hidden;
       z-index: 100;
-      font-family: 'Rubik Bubbles', cursive;
+      font-family: 'Freckle Face', cursive;
       letter-spacing: 2px;
     }
 
     .marquee span {
       display: inline-block;
       padding-left: 100%;
-      animation: scroll-left 15s linear infinite;
+      animation: scroll-left 15s linear infinite, rainbow 5s linear infinite;
       background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
       background-size: 1000%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: scroll-left 15s linear infinite, rainbow 5s linear infinite;
     }
 
     @keyframes scroll-left {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
     }
 
     @keyframes rainbow {
-      0% { background-position: 0% }
-      100% { background-position: 100% }
+      0% { background-position: 0%; }
+      100% { background-position: 100%; }
     }
 
     .centered-content {
       position: absolute;
-      top: 35%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -81,16 +76,41 @@
     }
 
     .centered-content img {
-      max-width: 50vw;
-      max-height: 40vh;
+      max-width: 40vw;
+      max-height: 35vh;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.7);
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .start-button {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #fff;
+      border-radius: 50px;
+      padding: 10px 22px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      font-family: 'Rubik Bubbles', cursive;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+    .start-button:hover {
+      background: white;
+      color: black;
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+    }
+
+    .start-button em {
+      font-style: normal;
+      color: #ffccff;
+      font-weight: bold;
+      margin-left: 5px;
     }
 
     audio {
-      width: 200px;
-      margin-top: 10px;
+      display: none;
     }
   </style>
 </head>
@@ -98,7 +118,7 @@
 
   <!-- Teks Berjalan -->
   <div class="marquee">
-    <span>SELAMAT DATANG DI WEB FKRIMHLN & SELAMAT MENDENGARKAN.</span>
+    <span>SELAMAT MENDENGARKAN - PROJECT BY:FIKRI.</span>
   </div>
 
   <!-- Video Latar -->
@@ -107,11 +127,14 @@
     Browser Anda tidak mendukung video.
   </video>
 
-  <!-- Gambar & Musik -->
+  <!-- Gambar & Tombol -->
   <div class="centered-content">
     <img src="https://files.catbox.moe/y5jja5.jpeg" alt="Gambar Tengah">
     <br>
-    <audio autoplay loop controls>
+    <button class="start-button" onclick="document.getElementById('musik').play()">
+      ▶ MULAI LAGU — <em>"Planetarium"</em>
+    </button>
+    <audio id="musik" loop>
       <source src="https://files.catbox.moe/gpgfky.mp4" type="audio/mp4">
       Browser Anda tidak mendukung audio.
     </audio>
